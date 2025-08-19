@@ -1,0 +1,3 @@
+https://www.iana.org/help/example-domains
+https://webscraper.io/test-sites
+https://world.openfoodfacts.org/
