@@ -264,6 +264,13 @@
                 <td class="last-updated">2025-08-19</td>
                 <td class="delete-cell" style="display: none;"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
             </tr>
+            <tr>
+                <td>5</td>
+                <td><a href="https://amex-incentive-calculator.onrender.com/" target="_blank" class="project-link editable-link" data-url="https://amex-incentive-calculator.onrender.com/">AMEX Incentive Tool</a><input type="text" class="editable-url" value="https://amex-incentive-calculator.onrender.com/" style="display:none;"></td>
+                <td><a href="#" onclick="downloadContracts()" class="file-link">Contracts</a></td>
+                <td class="last-updated">2025-08-28</td>
+                <td class="delete-cell" style="display: none;"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+            </tr>
         </tbody>
             </table>
         </div>
@@ -275,7 +282,7 @@
     </div>
 
     <script>
-        let rowCount = 4;
+        let rowCount = 5;
         
         function addNewRow() {
             rowCount++;
@@ -444,6 +451,29 @@
                 toggleBtn.textContent = 'Hide Delete';
             }
         }
+        
+        // Download contracts function
+        function downloadContracts() {
+            const files = [
+                { name: 'input file 2.xlsx', url: 'https://raw.githubusercontent.com/Akshit7103/Portfolio/main/input%20file%202.xlsx' },
+                { name: 'input file 3.xlsx', url: 'https://raw.githubusercontent.com/Akshit7103/Portfolio/main/input%20file%203.xlsx' },
+                { name: 'Sample 3.docx', url: 'https://raw.githubusercontent.com/Akshit7103/Portfolio/main/Sample%203.docx' },
+                { name: 'Sample 2 contract.docx', url: 'https://raw.githubusercontent.com/Akshit7103/Portfolio/main/Sample%202%20contract.docx' }
+            ];
+            
+            files.forEach((file, index) => {
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = file.url;
+                    link.download = file.name;
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, index * 100);
+            });
+        }
     </script>
 </body>
 </html>
+
