@@ -1,449 +1,778 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AI ML and Analytics - Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIML and Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            overflow-x: hidden;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            padding: 0 2rem;
         }
-        h1 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+
+        /* Header */
+        .header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
             text-align: center;
-            padding: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            margin-bottom: 0;
         }
-        .table-container {
-            padding: 30px;
-            overflow-x: auto;
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
         }
-        th {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 15px 12px;
-            text-align: left;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 0.5px;
-        }
-        td {
-            padding: 15px 12px;
-            border-bottom: 1px solid #e0e0e0;
-            background: white;
-            transition: background-color 0.3s ease;
-        }
-        tr:hover td {
-            background-color: #f8f9ff;
-        }
-        tr:nth-child(even) td {
-            background-color: #fafbff;
-        }
-        tr:nth-child(even):hover td {
-            background-color: #f0f2ff;
-        }
-        .editable {
-            background: transparent;
-            border: 1px solid transparent;
-            width: 100%;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-        .editable:focus {
-            background-color: #fff;
-            border: 1px solid #4facfe;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
-        }
-        .project-link {
-            color: #4facfe;
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 8px 12px;
-            border-radius: 6px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--bg-primary);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Main Section */
+        .main {
+            padding: 1rem 0;
+            background: var(--bg-secondary);
+            min-height: calc(100vh - 100px);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: var(--bg-primary);
+            padding: 1rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             cursor: pointer;
         }
-        .project-link:hover {
-            color: #2196F3;
-            background-color: rgba(79, 172, 254, 0.1);
-            transform: translateY(-1px);
+
+        .project-card.edit-mode {
+            cursor: default;
         }
-        .editable-link {
-            width: 100%;
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
         }
-        .editable-url {
-            background: transparent;
-            border: 1px solid transparent;
-            width: 100%;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 14px;
-            transition: all 0.3s ease;
+
+        .project-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            flex-grow: 1;
         }
-        .editable-url:focus {
-            background-color: #fff;
-            border: 1px solid #4facfe;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+
+        .project-meta {
+            padding: 0.75rem 1rem;
+            background: var(--bg-tertiary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: auto;
         }
-        .file-link {
-            color: #4facfe;
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .data-link {
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 6px 10px;
-            border-radius: 4px;
-            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: var(--transition);
         }
-        .file-link:hover {
-            color: #2196F3;
-            background-color: rgba(79, 172, 254, 0.1);
-            transform: translateY(-1px);
+
+        .data-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
         }
-        input[type="file"] {
-            border: 1px solid #ddd;
-            padding: 8px;
-            border-radius: 6px;
-            background: white;
-            font-size: 13px;
-            cursor: pointer;
-            transition: border-color 0.3s ease;
+
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
         }
-        input[type="file"]:hover {
-            border-color: #4facfe;
-        }
-        .add-row-btn {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            margin: 20px 0;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
-        }
-        .add-row-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
-        }
-        .delete-toggle-btn {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            margin: 20px 0 20px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(238, 90, 82, 0.3);
-        }
-        .delete-toggle-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(238, 90, 82, 0.4);
-        }
-        .delete-btn {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+
+        .admin-toggle {
+            background: var(--primary-color);
             color: white;
             border: none;
-            padding: 8px 16px;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
             cursor: pointer;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(238, 90, 82, 0.3);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
         }
-        .delete-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(238, 90, 82, 0.4);
+
+        .admin-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
         }
-        .last-updated {
-            font-weight: 600;
-            color: #666;
-            font-size: 13px;
+
+        .admin-controls {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+            min-width: 300px;
+            transform: translateY(20px) scale(0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
         }
-        .button-container {
+
+        .admin-controls.active {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .admin-controls h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .admin-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn-admin {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-admin:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
             text-align: center;
-            padding: 0 30px 30px;
+            padding: 2rem 0;
         }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+
+        .social-link:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
+            .header h1 {
+                font-size: 2rem;
             }
-            h1 {
-                font-size: 2em;
-                padding: 20px;
+
+            .header p {
+                font-size: 1rem;
             }
-            .table-container {
-                padding: 20px;
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
-            th, td {
-                padding: 10px 8px;
-                font-size: 13px;
+
+            .container {
+                padding: 0 1rem;
             }
+
+            .main {
+                padding: 1rem 0;
+            }
+
+            .projects-section {
+                padding: 1rem 0;
+            }
+
+            .admin-controls {
+                right: -50px;
+                min-width: 250px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Hidden class for dynamic content */
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>AI ML and Analytics</h1>
-        <div class="table-container">
-            <table>
-        <thead>
-            <tr>
-                <th>Serial No.</th>
-                <th>Project Name</th>
-                <th>Files</th>
-                <th>Last Updated</th>
-                <th id="actionsHeader" style="display: none;">Actions</th>
-            </tr>
-        </thead>
-        <tbody id="projectTableBody">
-            <tr>
-                <td>1</td>
-                <td><a href="https://sentiment-analytics.onrender.com/" target="_blank" class="project-link editable-link" data-url="https://sentiment-analytics.onrender.com/">Sentiment Analytics Dashboard</a><input type="text" class="editable-url" value="https://sentiment-analytics.onrender.com/" style="display:none;"></td>
-                <td><a href="dummy_100_posts.xlsx" target="_blank" class="file-link">Comments</a></td>
-                <td class="last-updated">2025-08-13</td>
-                <td class="delete-cell" style="display: none;"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td><a href="https://proposition-p1dt.onrender.com/" target="_blank" class="project-link editable-link" data-url="https://proposition-p1dt.onrender.com/">Proposition</a><input type="text" class="editable-url" value="https://proposition-p1dt.onrender.com/" style="display:none;"></td>
-                <td><a href="India_Premises_Locations.xlsx" target="_blank" class="file-link">Locations</a></td>
-                <td class="last-updated">2025-07-14</td>
-                <td class="delete-cell" style="display: none;"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td><a href="https://sentiment-analzyer.onrender.com/analyze" target="_blank" class="project-link editable-link" data-url="https://sentiment-analzyer.onrender.com/analyze">Sentiment Analyzer</a><input type="text" class="editable-url" value="https://sentiment-analzyer.onrender.com/analyze" style="display:none;"></td>
-                <td><a href="social_media_posts_clean.xlsx" target="_blank" class="file-link">Posts</a></td>
-                <td class="last-updated">2025-08-13</td>
-                <td class="delete-cell" style="display: none;"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td><a href="#" target="_blank" class="project-link editable-link" data-url="">Merchant Website Checker</a><input type="text" class="editable-url" value="" style="display:none;"></td>
-                <td><a href="testing domains.txt" target="_blank" class="file-link" download>Domains</a></td>
-                <td class="last-updated">2025-08-19</td>
-                <td class="delete-cell" style="display: none;"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
-            </tr>
-        </tbody>
-            </table>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>AIML and Analytics</h1>
         </div>
-        
-        <div class="button-container">
-            <button class="add-row-btn" onclick="addNewRow()">Add New Project</button>
-            <button class="delete-toggle-btn" onclick="toggleDeleteColumn()">Delete</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <section class="projects-section">
+                <div class="projects-grid" id="projectsGrid">
+                    <div class="project-card" onclick="window.open('https://proposition-p1dt.onrender.com/', '_blank')">
+                        <div class="project-header">
+                            <h3 class="project-title">Proposition</h3>
+                            <p class="project-description">
+                                Flask-based platform ingests location datasets, leverages Google Maps APIs to deliver static imagery, 360° experiences, live progress monitoring, downloadable outputs.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-links">
+                                <a href="India_Premises_Locations.xlsx" target="_blank" class="data-link" onclick="event.stopPropagation();">
+                                    <i class="fas fa-download"></i>
+                                    Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="window.open('https://sentiment-analzyer.onrender.com/', '_blank')">
+                        <div class="project-header">
+                            <h3 class="project-title">Sentiment Analyzer</h3>
+                            <p class="project-description">
+                                Real-time sentiment analysis tool for text processing and emotional intelligence.
+                                Supports multiple languages and provides detailed sentiment insights.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-links">
+                                <a href="social_media_posts_clean.xlsx" target="_blank" class="data-link" onclick="event.stopPropagation();">
+                                    <i class="fas fa-download"></i>
+                                    Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="window.open('https://sentiment-analytics.onrender.com/', '_blank')">
+                        <div class="project-header">
+                            <h3 class="project-title">Sentiment Analytics Dashboard</h3>
+                            <p class="project-description">
+                                Comprehensive sentiment analysis platform for social media monitoring and customer feedback analysis.
+                                Features real-time processing and interactive visualizations.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-links">
+                                <a href="dummy_100_posts.xlsx" target="_blank" class="data-link" onclick="event.stopPropagation();">
+                                    <i class="fas fa-download"></i>
+                                    Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="window.open('#', '_blank')">
+                        <div class="project-header">
+                            <h3 class="project-title">Image Analytics</h3>
+                            <p class="project-description">
+                                Document validation platform compares Aadhaar and PAN uploads using Google Vision OCR, InsightFace matching, optimized caching, and detailed reports.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-links">
+                                <a href="image input.zip" target="_blank" class="data-link" download onclick="event.stopPropagation();">
+                                    <i class="fas fa-download"></i>
+                                    Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="window.open('#', '_blank')">
+                        <div class="project-header">
+                            <h3 class="project-title">Video Analytics</h3>
+                            <p class="project-description">
+                                This is a face recognition system built for real-time detection and logging with roles(customer/employee/fraudster), featuring a web dashboard for management, registration, analytics, and video analysis.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-links">
+                                <a href="video input.zip" target="_blank" class="data-link" download onclick="event.stopPropagation();">
+                                    <i class="fas fa-download"></i>
+                                    Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="window.open('https://amex-incentive-calculator.onrender.com/', '_blank')">
+                        <div class="project-header">
+                            <h3 class="project-title">Contracts Extraction and Calculation Tool</h3>
+                            <p class="project-description">
+                                A web application for CV (Charge Volume) incentive calculation that processes Excel files and Word contracts to extract financial data and compute gross incentives.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-links">
+                                <a href="Input.zip" target="_blank" class="data-link" download onclick="event.stopPropagation();">
+                                    <i class="fas fa-download"></i>
+                                    Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="window.open('https://merchant-website-dloh.onrender.com/', '_blank')">
+                        <div class="project-header">
+                            <h3 class="project-title">Merchant Website Checker</h3>
+                            <p class="project-description">
+                                Automated website analysis tool for merchant verification and compliance checking.
+                                Features bulk processing and detailed reporting capabilities.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-links">
+                                <a href="testing domains.txt" target="_blank" class="data-link" download onclick="event.stopPropagation();">
+                                    <i class="fas fa-download"></i>
+                                    Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel">
+        <button class="admin-toggle" onclick="toggleAdminPanel()">
+            <i class="fas fa-cog"></i>
+        </button>
+        <div class="admin-controls" id="adminControls">
+            <h3>Admin Controls</h3>
+            <div class="admin-buttons">
+                <button class="btn-admin" onclick="addNewProject()">
+                    <i class="fas fa-plus"></i>
+                    Add Project
+                </button>
+                <button class="btn-admin" onclick="editMode()">
+                    <i class="fas fa-edit"></i>
+                    Edit Mode
+                </button>
+                <button class="btn-admin" onclick="exportData()">
+                    <i class="fas fa-download"></i>
+                    Export Data
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
-        let rowCount = 4;
-        
-        function addNewRow() {
-            rowCount++;
-            const tbody = document.getElementById('projectTableBody');
-            const newRow = document.createElement('tr');
-            
-            const today = new Date().toISOString().split('T')[0];
-            
-            newRow.innerHTML = `
-                <td>${rowCount}</td>
-                <td><a href="#" target="_blank" class="project-link editable-link" data-url="">New Project</a><input type="text" class="editable-url" value="" placeholder="Enter project URL" style="display:none;"></td>
-                <td></td>
-                <td class="last-updated">${today}</td>
-                <td class="delete-cell" style="display: none;"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
-            `;
-            
-            tbody.appendChild(newRow);
-            
-            // Add event listeners to update last modified date
-            const editableInputs = newRow.querySelectorAll('.editable, .editable-url');
-            editableInputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    const lastUpdatedCell = this.closest('tr').querySelector('.last-updated');
-                    lastUpdatedCell.textContent = new Date().toISOString().split('T')[0];
-                    
-                    // Update project link if URL changed
-                    if (this.classList.contains('editable-url')) {
-                        const projectLink = this.closest('td').querySelector('.project-link');
-                        projectLink.href = this.value || '#';
-                        projectLink.setAttribute('data-url', this.value);
+        // Simple project showcase functionality
+        class ProjectManager {
+            constructor() {
+                this.projects = [];
+                this.editMode = false;
+                this.init();
+            }
+
+            init() {
+                this.setupProjectData();
+                this.setupAdminPanel();
+                this.setupAnimations();
+            }
+
+            setupAnimations() {
+                // Simple fade-in animations for project cards
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-in-up');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.project-card').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            setupProjectData() {
+                this.projects = [
+                    {
+                        id: 1,
+                        title: "Proposition",
+                        description: "Flask-based platform ingests location datasets, leverages Google Maps APIs to deliver static imagery, 360° experiences, live progress monitoring, downloadable outputs.",
+                        url: "https://proposition-p1dt.onrender.com/",
+                        file: "India_Premises_Locations.xlsx",
+                        fileLabel: "Data",
+                        updated: "Jul 14, 2025"
+                    },
+                    {
+                        id: 2,
+                        title: "Sentiment Analyzer",
+                        description: "Real-time sentiment analysis tool for text processing and emotional intelligence. Supports multiple languages and provides detailed sentiment insights.",
+                        url: "https://sentiment-analzyer.onrender.com/",
+                        file: "social_media_posts_clean.xlsx",
+                        fileLabel: "Data",
+                        updated: "Aug 13, 2025"
+                    },
+                    {
+                        id: 3,
+                        title: "Sentiment Analytics Dashboard",
+                        description: "Comprehensive sentiment analysis platform for social media monitoring and customer feedback analysis. Features real-time processing and interactive visualizations.",
+                        url: "https://sentiment-analytics.onrender.com/",
+                        file: "dummy_100_posts.xlsx",
+                        fileLabel: "Data",
+                        updated: "Aug 13, 2025"
+                    },
+                    {
+                        id: 4,
+                        title: "Image Analytics",
+                        description: "Document validation platform compares Aadhaar and PAN uploads using Google Vision OCR, InsightFace matching, optimized caching, and detailed reports.",
+                        url: "#",
+                        file: "image input.zip",
+                        fileLabel: "Data",
+                        updated: "Sep 23, 2025"
+                    },
+                    {
+                        id: 5,
+                        title: "Video Analytics",
+                        description: "This is a face recognition system built for real-time detection and logging with roles(customer/employee/fraudster), featuring a web dashboard for management, registration, analytics, and video analysis.",
+                        url: "#",
+                        file: "video input.zip",
+                        fileLabel: "Data",
+                        updated: "Sep 23, 2025"
+                    },
+                    {
+                        id: 6,
+                        title: "Contracts Extraction and Calculation Tool",
+                        description: "A web application for CV (Charge Volume) incentive calculation that processes Excel files and Word contracts to extract financial data and compute gross incentives.",
+                        url: "https://amex-incentive-calculator.onrender.com/",
+                        file: "Input.zip",
+                        fileLabel: "Data",
+                        updated: "Sep 23, 2025"
+                    },
+                    {
+                        id: 7,
+                        title: "Merchant Website Checker",
+                        description: "Automated website analysis tool for merchant verification and compliance checking. Features bulk processing and detailed reporting capabilities.",
+                        url: "https://merchant-website-dloh.onrender.com/",
+                        file: "testing domains.txt",
+                        fileLabel: "Data",
+                        updated: "Aug 19, 2025"
+                    }
+                ];
+            }
+
+            setupAdminPanel() {
+                window.toggleAdminPanel = () => {
+                    const controls = document.getElementById('adminControls');
+                    controls.classList.toggle('active');
+                };
+
+                window.addNewProject = () => {
+                    const newProject = {
+                        id: this.projects.length + 1,
+                        title: "New Project",
+                        description: "Project description here...",
+                        url: "#",
+                        file: "",
+                        fileLabel: "Data",
+                        updated: new Date().toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                        })
+                    };
+
+                    this.projects.push(newProject);
+                    this.renderProjects();
+
+                    // If in edit mode, apply edit mode to new elements
+                    if (this.editMode) {
+                        this.enableEditMode();
+                    }
+
+                    document.getElementById('adminControls').classList.remove('active');
+                };
+
+                window.editMode = () => {
+                    this.editMode = !this.editMode;
+                    const btn = document.querySelector('[onclick="editMode()"]');
+
+                    if (this.editMode) {
+                        this.enableEditMode();
+                        btn.innerHTML = '<i class="fas fa-save"></i> Save Changes';
+                    } else {
+                        this.disableEditMode();
+                        btn.innerHTML = '<i class="fas fa-edit"></i> Edit Mode';
+                    }
+                };
+
+                window.exportData = () => {
+                    const dataStr = JSON.stringify(this.projects, null, 2);
+                    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+                    const url = URL.createObjectURL(dataBlob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'projects-data.json';
+                    link.click();
+                    document.getElementById('adminControls').classList.remove('active');
+                };
+            }
+
+            enableEditMode() {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.classList.add('edit-mode');
+                });
+                document.querySelectorAll('.project-title, .project-description').forEach(el => {
+                    el.contentEditable = true;
+                    el.style.border = '1px dashed var(--primary-color)';
+                    el.style.padding = '0.5rem';
+                    el.style.borderRadius = '0.25rem';
+
+                    // Add click handler to prevent propagation in edit mode
+                    el.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                    });
+                });
+            }
+
+            disableEditMode() {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.classList.remove('edit-mode');
+                });
+                document.querySelectorAll('.project-title, .project-description').forEach(el => {
+                    el.contentEditable = false;
+                    el.style.border = 'none';
+                    el.style.padding = '';
+                    el.style.borderRadius = '';
+
+                    // Remove click handlers
+                    el.replaceWith(el.cloneNode(true));
+                });
+                this.updateProjectsFromDOM();
+            }
+
+            updateProjectsFromDOM() {
+                const projectCards = document.querySelectorAll('.project-card');
+                projectCards.forEach((card, index) => {
+                    if (this.projects[index]) {
+                        this.projects[index].title = card.querySelector('.project-title').textContent;
+                        this.projects[index].description = card.querySelector('.project-description').textContent;
+                        this.projects[index].updated = new Date().toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                        });
                     }
                 });
-            });
-            
-            // Add double-click editing for new project link
-            const newProjectLink = newRow.querySelector('.project-link');
-            newProjectLink.addEventListener('dblclick', function(e) {
-                e.preventDefault();
-                const currentText = this.textContent;
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.value = currentText;
-                input.className = 'editable';
-                input.style.width = '100%';
-                
-                const cell = this.closest('td');
-                const urlInput = cell.querySelector('.editable-url');
-                
-                this.style.display = 'none';
-                urlInput.style.display = 'block';
-                cell.insertBefore(input, this);
-                input.focus();
-                
-                input.addEventListener('blur', function() {
-                    newProjectLink.textContent = this.value || 'New Project';
-                    newProjectLink.style.display = 'inline-block';
-                    urlInput.style.display = 'none';
-                    cell.removeChild(this);
-                    
-                    // Update last modified
-                    const lastUpdatedCell = cell.closest('tr').querySelector('.last-updated');
-                    lastUpdatedCell.textContent = new Date().toISOString().split('T')[0];
+            }
+
+            renderProjects() {
+                const grid = document.getElementById('projectsGrid');
+                grid.innerHTML = '';
+
+                this.projects.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card';
+                    projectCard.onclick = () => {
+                        if (!projectCard.classList.contains('edit-mode')) {
+                            window.open(project.url, '_blank');
+                        }
+                    };
+                    projectCard.innerHTML = `
+                        <div class="project-header">
+                            <h3 class="project-title">${project.title}</h3>
+                            <p class="project-description">${project.description}</p>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-links">
+                                ${project.file ? `
+                                    <a href="${project.file}" target="_blank" class="data-link" ${project.file.endsWith('.txt') ? 'download' : ''} onclick="event.stopPropagation();">
+                                        <i class="fas fa-download"></i>
+                                        Data
+                                    </a>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(projectCard);
                 });
-                
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        this.blur();
-                    }
-                });
-            });
-            
-        }
-        
-        // Initialize serial numbers
-        updateSerialNumbers();
-        
-        // Add event listeners to existing rows
-        document.querySelectorAll('.editable, .editable-url').forEach(input => {
-            input.addEventListener('input', function() {
-                const lastUpdatedCell = this.closest('tr').querySelector('.last-updated');
-                lastUpdatedCell.textContent = new Date().toISOString().split('T')[0];
-                
-                // Update project link if URL changed
-                if (this.classList.contains('editable-url')) {
-                    const projectLink = this.closest('td').querySelector('.project-link');
-                    projectLink.href = this.value || '#';
-                    projectLink.setAttribute('data-url', this.value);
-                }
-            });
-        });
-        
-        // Add double-click editing for project names and URLs
-        document.querySelectorAll('.project-link').forEach(link => {
-            // Edit project name
-            link.addEventListener('dblclick', function(e) {
-                e.preventDefault();
-                const currentText = this.textContent;
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.value = currentText;
-                input.className = 'editable';
-                input.style.width = '100%';
-                
-                const cell = this.closest('td');
-                const urlInput = cell.querySelector('.editable-url');
-                
-                this.style.display = 'none';
-                urlInput.style.display = 'block';
-                cell.insertBefore(input, this);
-                input.focus();
-                
-                input.addEventListener('blur', function() {
-                    link.textContent = this.value || 'New Project';
-                    link.style.display = 'inline-block';
-                    urlInput.style.display = 'none';
-                    cell.removeChild(this);
-                    
-                    // Update last modified
-                    const lastUpdatedCell = cell.closest('tr').querySelector('.last-updated');
-                    lastUpdatedCell.textContent = new Date().toISOString().split('T')[0];
-                });
-                
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        this.blur();
-                    }
-                });
-            });
-        });
-        
-        // Delete row function with confirmation
-        function deleteRow(button) {
-            const row = button.closest('tr');
-            const projectName = row.querySelector('.project-link').textContent || 'this project';
-            
-            if (confirm(`Are you sure you want to delete "${projectName}"?`)) {
-                row.remove();
-                updateSerialNumbers();
             }
         }
-        
-        // Update serial numbers after deletion
-        function updateSerialNumbers() {
-            const rows = document.querySelectorAll('#projectTableBody tr');
-            rows.forEach((row, index) => {
-                row.querySelector('td:nth-child(1)').textContent = index + 1;
-            });
-            rowCount = rows.length;
-        }
-        
-        // Toggle delete column visibility
-        function toggleDeleteColumn() {
-            const actionsHeader = document.getElementById('actionsHeader');
-            const deleteCells = document.querySelectorAll('.delete-cell');
-            const toggleBtn = document.querySelector('.delete-toggle-btn');
-            
-            const isVisible = actionsHeader.style.display !== 'none';
-            
-            if (isVisible) {
-                actionsHeader.style.display = 'none';
-                deleteCells.forEach(cell => cell.style.display = 'none');
-                toggleBtn.textContent = 'Delete';
-            } else {
-                actionsHeader.style.display = 'table-cell';
-                deleteCells.forEach(cell => cell.style.display = 'table-cell');
-                toggleBtn.textContent = 'Hide Delete';
-            }
-        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            new ProjectManager();
+        });
     </script>
 </body>
 </html>
